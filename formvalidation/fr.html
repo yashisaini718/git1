@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>User Registration Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg,#e3f2fd,#ffffff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,.1);
+      padding: 20px 30px;
+      width: 600px;
+    }
+    .container h1 {
+      text-align: center;
+      color: #00040d;
+      margin-bottom: 20px;
+    }
+    form {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .form-section {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      font-size: 14px;
+      font-weight: bold;
+      margin-top: 8px;
+    }
+    input {
+      padding: 8px;
+      margin-top: 4px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    .error {
+      color: #c00;
+      font-size: 12px;
+      height: 14px;
+      margin-top: 2px;
+    }
+    .button-area {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      width: 120px;
+    }
+    button {
+      padding: 10px 14px;
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      margin-top: 30px;
+      width: 100%;
+    }
+    button:hover {
+      background: #1d4ed8;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>User Registration Form</h1>
+    <form id="myForm" novalidate>
+      <div class="form-section">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+        <div class="error" id="nameError"></div>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+        <div class="error" id="emailError"></div>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+        <div class="error" id="passwordError"></div>
+      </div>
+
+      <div class="button-area">
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    const form=document.getElementById('myForm');
+    const nameInput=document.getElementById('name');
+    const emailInput=document.getElementById('email');
+    const passwordInput=document.getElementById('password');
+
+    const nameError=document.getElementById('nameError');
+    const emailError=document.getElementById('emailError');
+    const passwordError=document.getElementById('passwordError');
+
+    function validateName(){
+      const v=nameInput.value.trim();
+      if(!v){return 'Name is required';}
+      if(v.length<3){return 'Name must be at least 3 characters';}
+      return '';
+    }
+    function validateEmail(){
+      const v=emailInput.value.trim();
+      if(!v){return 'Email is required';}
+      const re=/^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$/;
+      if(!re.test(v)){return 'Enter a valid email';}
+      return '';
+    }
+    function validatePassword(){
+      const v=passwordInput.value;
+      if(!v){return 'Password is required';}
+      if(v.length<6){return 'Password must be at least 6 characters';}
+      return '';
+    }
+
+    form.addEventListener('submit',function(e){
+      e.preventDefault();
+      const nameMsg=validateName();
+      const emailMsg=validateEmail();
+      const passMsg=validatePassword();
+
+      nameError.textContent=nameMsg;
+      emailError.textContent=emailMsg;
+      passwordError.textContent=passMsg;
+
+      if(!nameMsg && !emailMsg && !passMsg){
+        alert('Form submitted successfully!');
+      }
+    });
+
+    nameInput.addEventListener('input',()=>nameError.textContent=validateName());
+    emailInput.addEventListener('input',()=>emailError.textContent=validateEmail());
+    passwordInput.addEventListener('input',()=>passwordError.textContent=validatePassword());
+  </script>
+</body>
+</html>

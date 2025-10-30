@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Institute | Official Website</title>
+  <meta name="description" content="Single-page website for an institute with departmental information for CSE, ME, CE, ECE, and EE." />
+  <style>
+    :root{
+      --bg:#0b1020;          /* page background */
+      --panel:#121936;       /* panels/cards */
+      --border:#22305c;      /* borders */
+      --text:#e9edf7;        /* primary text */
+      --muted:#a9b2c6;       /* secondary text */
+      --accent:#4f8cff;      /* accent 1 */
+      --accent2:#22c55e;     /* accent 2 */
+      --shadow:0 10px 30px rgba(0,0,0,.25);
+      --radius:18px;
+      --max:1200px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:linear-gradient(180deg,#090e1c 0%,#0b1020 35%,#0d1328 100%);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Helvetica Neue',Arial}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:var(--max);margin:auto;padding:0 20px}
+
+    /* Header */
+    header{position:sticky;top:0;z-index:50;background:rgba(9,14,28,.7);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:44px;height:44px;border-radius:12px;background:conic-gradient(from 180deg at 50% 50%, #4f8cff, #22c55e);box-shadow:var(--shadow)}
+    .brand h1{font-size:18px;margin:0;font-weight:800;letter-spacing:.3px}
+    nav ul{display:flex;gap:18px;list-style:none;padding:0;margin:0}
+    nav a{padding:8px 12px;border-radius:12px;color:var(--muted)}
+    nav a:hover, nav a:focus{outline:none;background:var(--panel);color:var(--text)}
+
+    /* Hero */
+    .hero{padding:84px 0 56px;border-bottom:1px solid var(--border)}
+    .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid var(--border);border-radius:999px;color:var(--muted);font-size:12px}
+    .hero h2{font-size:42px;line-height:1.15;margin:14px 0 10px}
+    .hero p{color:var(--muted);margin:0 0 22px}
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:14px;border:1px solid var(--border);background:var(--panel);color:var(--text);text-decoration:none;box-shadow:var(--shadow)}
+    .btn.primary{background:linear-gradient(90deg,var(--accent),#7aa8ff);border-color:transparent;color:#0a1020;font-weight:800}
+    .btn.secondary{background:transparent}
+
+    /* Sections */
+    section{padding:64px 0;border-bottom:1px solid var(--border)}
+    section h3{font-size:28px;margin:0 0 12px}
+    section p.lead{color:var(--muted);margin:0 0 24px}
+
+    /* Departments */
+    .dept-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:linear-gradient(180deg,rgba(79,140,255,.10),rgba(79,140,255,.05));border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+    .card .bar{height:6px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+    .card .body{padding:18px}
+    .card h4{margin:0 0 6px;font-size:20px}
+    .tagline{color:var(--muted);font-size:14px;margin:0 0 12px}
+    .kv{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}
+    .kv div{background:rgba(255,255,255,.03);border:1px dashed var(--border);padding:10px;border-radius:12px}
+    .kv strong{display:block;font-size:12px;color:var(--muted)}
+    .list{padding-left:18px;margin:0}
+    .list li{margin:6px 0}
+
+    /* Footer */
+    footer{padding:28px 0;color:var(--muted)}
+
+    /* Responsive */
+    @media (max-width:1024px){.hero .wrap{grid-template-columns:1fr}.dept-grid{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:620px){.dept-grid{grid-template-columns:1fr}.hero h2{font-size:34px}}
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <h1>My Institute</h1>
+      </div>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#departments">Departments</a></li>
+          <li><a href="#admissions">Admissions</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main id="home" class="hero">
+    <div class="container wrap">
+      <div>
+        <span class="eyebrow">NAAC Accredited • AICTE Approved</span>
+        <h2>Empowering Engineers of Tomorrow</h2>
+        <p>Welcome to <strong>My Institute</strong> — a hub of innovation, research, and experiential learning. Discover our programs, modern labs, and student‑first campus culture.</p>
+        <div class="cta-row">
+          <a class="btn primary" href="#departments">Explore Departments</a>
+          <a class="btn secondary" href="#admissions">View Admissions</a>
+        </div>
+      </div>
+      <div>
+        <!-- Decorative panel -->
+        <div class="card" role="img" aria-label="Campus illustration">
+          <div class="bar"></div>
+          <div class="body">
+            <h4>Why Choose Us?</h4>
+            <ul class="list">
+              <li>Outcome‑based curriculum aligned with industry.</li>
+              <li>State‑of‑the‑art laboratories and research centers.</li>
+              <li>Active clubs, hackathons, and mentorship.</li>
+              <li>Strong placement support and alumni network.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Departments -->
+  <section id="departments">
+    <div class="container">
+      <h3>Departments</h3>
+      <p class="lead">Explore our five core engineering departments. Click the navigation to jump to any section.</p>
+
+      <div class="dept-grid">
+        <!-- CSE -->
+        <article class="card" id="cse" aria-labelledby="cse-title">
+          <div class="bar"></div>
+          <div class="body">
+            <h4 id="cse-title">Computer Science & Engineering (CSE)</h4>
+            <p class="tagline">AI • Data • Systems • Security</p>
+            <div class="kv">
+              <div><strong>Programs</strong>B.Tech, M.Tech</div>
+              <div><strong>Intake</strong>180 (UG)</div>
+            </div>
+            <ul class="list">
+              <li>Key Labs: Programming, AI/ML, Cloud & Cybersecurity, Data Engineering.</li>
+              <li>Highlights: Hackathons, open‑source contributions, industry‑led electives.</li>
+              <li>HOD: Dr. A. Sharma • <a href="mailto:cse@myinst.edu">cse@myinst.edu</a></li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- ME -->
+        <article class="card" id="me" aria-labelledby="me-title">
+          <div class="bar"></div>
+          <div class="body">
+            <h4 id="me-title">Mechanical Engineering (ME)</h4>
+            <p class="tagline">Design • Manufacturing • Thermal</p>
+            <div class="kv">
+              <div><strong>Programs</strong>B.Tech</div>
+              <div><strong>Intake</strong>120 (UG)</div>
+            </div>
+            <ul class="list">
+              <li>Key Labs: CAD/CAM, Fluid Mechanics, Heat Transfer, Mechatronics.</li>
+              <li>Highlights: SAE collegiate club, fabrication workshops, industry internships.</li>
+              <li>HOD: Prof. R. Verma • <a href="mailto:me@myinst.edu">me@myinst.edu</a></li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- CE -->
+        <article class="card" id="ce" aria-labelledby="ce-title">
+          <div class="bar"></div>
+          <div class="body">
+            <h4 id="ce-title">Civil Engineering (CE)</h4>
+            <p class="tagline">Structures • Geo‑tech • Transportation</p>
+            <div class="kv">
+              <div><strong>Programs</strong>B.Tech</div>
+              <div><strong>Intake</strong>120 (UG)</div>
+            </div>
+            <ul class="list">
+              <li>Key Labs: Surveying, Concrete Technology, Geotechnical, Environmental.</li>
+              <li>Highlights: Field visits, consultancy projects, software training (STAAD.Pro).</li>
+              <li>HOD: Dr. P. Singh • <a href="mailto:ce@myinst.edu">ce@myinst.edu</a></li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- ECE -->
+        <article class="card" id="ece" aria-labelledby="ece-title">
+          <div class="bar"></div>
+          <div class="body">
+            <h4 id="ece-title">Electronics & Communication Engg. (ECE)</h4>
+            <p class="tagline">VLSI • Embedded • Communications</p>
+            <div class="kv">
+              <div><strong>Programs</strong>B.Tech, M.Tech</div>
+              <div><strong>Intake</strong>150 (UG)</div>
+            </div>
+            <ul class="list">
+              <li>Key Labs: Analog/Digital Electronics, VLSI, Embedded Systems, RF & Microwave.</li>
+              <li>Highlights: IoT projects, chip‑level design workshops, publications.</li>
+              <li>HOD: Prof. N. Rao • <a href="mailto:ece@myinst.edu">ece@myinst.edu</a></li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- EE -->
+        <article class="card" id="ee" aria-labelledby="ee-title">
+          <div class="bar"></div>
+          <div class="body">
+            <h4 id="ee-title">Electrical Engineering (EE)</h4>
+            <p class="tagline">Power • Machines • Control</p>
+            <div class="kv">
+              <div><strong>Programs</strong>B.Tech</div>
+              <div><strong>Intake</strong>120 (UG)</div>
+            </div>
+            <ul class="list">
+              <li>Key Labs: Power Systems, Electrical Machines, Power Electronics, Control.</li>
+              <li>Highlights: Renewable energy initiatives, smart‑grid research, industrial MoUs.</li>
+              <li>HOD: Dr. S. Iyer • <a href="mailto:ee@myinst.edu">ee@myinst.edu</a></li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Admissions -->
+  <section id="admissions">
+    <div class="container">
+      <h3>Admissions</h3>
+      <p class="lead">Admissions for the academic year are based on national/state‑level entrance examinations. Prospective students can apply online and track their application status.</p>
+      <div class="card">
+        <div class="bar"></div>
+        <div class="body">
+          <ul class="list">
+            <li>Eligibility: As per regulatory norms (AICTE/University).</li>
+            <li>Scholarships: Merit‑ and need‑based assistance available.</li>
+            <li>Helpline: <a href="mailto:admissions@myinst.edu">admissions@myinst.edu</a> • +91‑98765‑43210</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <h3>Contact</h3>
+      <p class="lead">We would love to hear from you. For department‑specific queries, email the respective HODs above.</p>
+      <div class="card">
+        <div class="bar"></div>
+        <div class="body">
+          <ul class="list">
+            <li>Address: My Institute, Knowledge Park, City, State, 000000</li>
+            <li>Email: <a href="mailto:info@myinst.edu">info@myinst.edu</a> • Phone: +91‑12345‑67890</li>
+            <li>Working Hours: Mon–Fri, 9:00 AM – 5:00 PM</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">© <span id="yr"></span> My Institute. All rights reserved.</div>
+  </footer>
+
+  <!-- Small inline script only to set current year (optional) -->
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

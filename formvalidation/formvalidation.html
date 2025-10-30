@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Simple Form Validation</title>
+  <style>
+    body{font-family:sans-serif;background:#f9f9f9;display:flex;justify-content:center;align-items:center;height:100vh;margin:0;}
+    form{background:#fff;padding:20px;border-radius:6px;box-shadow:0 2px 6px rgba(0,0,0,.1);width:300px;padding-right:20px;}
+    label{display:block;margin-top:10px;font-size:14px;margin-right:10px;}
+    input{width:100%;padding:8px;margin-top:4px;border:1px solid #ccc;border-radius:4px;margin-right:16px}
+    .error{color:#c00;font-size:12px;margin-top:2px;}
+    button{margin-top:14px;padding:8px 12px;border:none;background:#2563eb;color:#fff;border-radius:4px;cursor:pointer;width:100%;}
+  </style>
+</head>
+<body>
+  <form id="myForm" novalidate>
+    <center><h1>User Registration</h1></center>
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" required>
+    <div class="error" id="nameError"></div>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required>
+    <div class="error" id="emailError"></div>
+
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" required>
+    <div class="error" id="passwordError"></div>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    const form=document.getElementById('myForm');
+    const nameInput=document.getElementById('name');
+    const emailInput=document.getElementById('email');
+    const passwordInput=document.getElementById('password');
+
+    const nameError=document.getElementById('nameError');
+    const emailError=document.getElementById('emailError');
+    const passwordError=document.getElementById('passwordError');
+
+    function validateName(){
+      const v=nameInput.value.trim();
+      if(!v){return 'Name is required';}
+      if(v.length<3){return 'Name must be at least 3 characters';}
+      return '';
+    }
+    function validateEmail(){
+      const v=emailInput.value.trim();
+      if(!v){return 'Email is required';}
+      const re=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+      if(!re.test(v)){return 'Enter a valid email';}
+      return '';
+    }
+    function validatePassword(){
+      const v=passwordInput.value;
+      if(!v){return 'Password is required';}
+      if(v.length<6){return 'Password must be at least 6 characters';}
+      return '';
+    }
+
+    form.addEventListener('submit',function(e){
+      e.preventDefault();
+      const nameMsg=validateName();
+      const emailMsg=validateEmail();
+      const passMsg=validatePassword();
+
+      nameError.textContent=nameMsg;
+      emailError.textContent=emailMsg;
+      passwordError.textContent=passMsg;
+
+      if(!nameMsg && !emailMsg && !passMsg){
+        alert('Form submitted successfully!');
+        // form.submit(); // or AJAX call
+      }
+    });
+
+    nameInput.addEventListener('input',()=>nameError.textContent=validateName());
+    emailInput.addEventListener('input',()=>emailError.textContent=validateEmail());
+    passwordInput.addEventListener('input',()=>passwordError.textContent=validatePassword());
+  </script>
+</body>
+</html>
