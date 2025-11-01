@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>navbar</title>
+    <style>
+        body{
+            background-color: rgb(28, 25, 25);
+        }
+        .navbar{
+            border: 1px solid black;
+            border-radius: 50px;
+            background-color: black;
+            overflow: auto;
+        }
+        .navbar .search_item{
+            float: right;
+            padding: 18px;
+        }
+        .navbar #search{
+            /*border: 1px solid whitesmoke;*/
+            margin-right: 50px;
+            width: 200px;
+            height: 23px;
+            background-color: whitesmoke;
+        }
+        .navbar li{
+            float: left;
+            padding: 23px;
+        }
+        ul{
+            margin:0;
+            list-style: none;
+        }
+        .navbar a{
+            font-size: 15px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            text-decoration: none;
+            color: white;
+        }
+        #search:hover{
+           /* border:1px solid rgb(237, 219, 183);*/
+           border: 1px solid orange;
+        }
+        a:hover{
+            color: rgb(86, 167, 237);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar" id="nav">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li class="search_item"><input type="text" name="search" id="search" placeholder="Search"></li>
+        </ul>
+    </nav>
+</body>
+</html>
